@@ -108,6 +108,27 @@ into the {body} of the default.hbs template --}}
                     {{content}}
                 </div>
             </section>
+            <div id="comments" class="section bordered">
+                <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+                <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+                <div id="gitalk-container"></div>
+            </div>
+            <script>
+            		var gitalk = new Gitalk({
+                		clientID: 'df8931032103bddaef83',
+                		clientSecret: '10f1eb3a03beb691140328a922166424370ab019',
+                		repo: 'discuss.dart.icu',
+                		owner: 'vucre',
+                		admin: ['vucre'],
+                		id: '{{url}}',
+                		distractionFreeMode: false
+            		});
+            		gitalk.render('gitalk-container');
+        	</script>
+    gitalk.render('gitalk-container')
+</script>
+
+
 
             {{!-- Email subscribe form at the bottom of the page --}}
             {{#if @labs.members}}
